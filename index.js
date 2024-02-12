@@ -17,10 +17,6 @@ let chatIndex = 0;
 // To align with index starting at 0
 let frameLimit = imageList.length - 1;
 
-// TODO
-// For the last screen to prevent the user to stop moving to the next screen.
-// Add text associated to the images
-
 const keyHandler = (e) => {
   const characterLocationValue = parseInt(character.style.left, 10);
 
