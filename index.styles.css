@@ -250,7 +250,7 @@ img.start {
 .chatText {
   color: white;
   font-size: 17px;
-  font-family: 'Pixelify Sans', sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
 .male {
@@ -260,7 +260,7 @@ img.start {
   z-index: 99;
   width: 52px;
   height: 104px;
-  left: 200px;
+  right: 0px;
 }
 
 .gameTitle {
@@ -272,9 +272,34 @@ img.start {
 }
 
 .pressStart {
-  width:40%;
+  width: 40%;
   height: auto;
   position: absolute;
   left: 120px;
   top: 50px;
+}
+
+.modalContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.modal {
+  position: absolute;
+  top: 5px;
+  padding: 10px;
+  z-index: 100;
+  background-color: var(--blue);
+  border-radius: 20px;
+  border: 6px solid var(--stroke);
+}
+
+.modal button {
+  background-color: var(--red);
+  border: 6px solid var(--stroke);
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
 }
