@@ -8,24 +8,54 @@ const scene1 = document.getElementById("scene1");
 const scene1Text = document.getElementById("scene1Text");
 const startSound = document.getElementById("startSound");
 const clickSound = document.getElementById("clickSound");
+const maleCharacter = document.querySelector(".male");
+const modal = document.querySelector(".modal");
+const modalButtons = document.querySelectorAll(".modal button");
 const backgroundMusic = document.getElementById("bgMusic");
-backgroundMusic.volume = .1;
+backgroundMusic.volume = 0.1;
 
-
+let shouldModalOpen = true;
 let index = 0;
 let chatIndex = 0;
+let shouldRestrictMovement = false;
 // To align with index starting at 0
 let frameLimit = imageList.length - 1;
+
+const keyClick = () => {
+  modal.classList.add("hidden");
+  shouldRestrictMovement = false;
+};
+
+// Both do the same shit handler
+modalButtons[0].addEventListener("click", keyClick);
+modalButtons[1].addEventListener("click", keyClick);
+
+const displayModal = (characterLocationValue) => {
+  if (
+    index === 1 &&
+    characterLocationValue > imageList[index].offsetWidth - 150 &&
+    shouldModalOpen
+  ) {
+    shouldRestrictMovement = shouldModalOpen ? true : false;
+    modal.classList.remove("hidden");
+    shouldModalOpen = false;
+  }
+};
 
 const keyHandler = (e) => {
   const characterLocationValue = parseInt(character.style.left, 10);
 
   if (e.key === "ArrowRight") {
-    character.style.left = characterLocationValue + 15 + "px";
+    if (!shouldRestrictMovement) {
+      character.style.left = characterLocationValue + 15 + "px";
+    }
+    displayModal(characterLocationValue);
   }
 
   if (e.key === "ArrowLeft") {
-    character.style.left = characterLocationValue - 15 + "px";
+    if (!shouldRestrictMovement) {
+      character.style.left = characterLocationValue - 15 + "px";
+    }
   }
 
   // Next Screen
@@ -43,50 +73,27 @@ const keyHandler = (e) => {
   if (characterLocationValue < 0) {
     character.style.left = 0;
   }
-
-  console.log(imageList[index].offsetWidth, "THIS SHIT");
 };
 document.addEventListener("keydown", (e) => keyHandler(e));
-
 
 // Button Functions
 
 function playStartSound() {
-  startSound.volume = .25;
+  startSound.volume = 0.25;
   startSound.play();
 }
 
 function playClickSound() {
-  clickSound.volume = .35;
+  clickSound.volume = 0.35;
   clickSound.play();
 }
 
 function buttonLeft() {
   if (startScreen.classList.contains("hidden") === true) {
-  const characterLocationValue = parseInt(character.style.left, 10);
-  character.style.left = characterLocationValue - 25 + "px"; 
-  if (
-    characterLocationValue > imageList[index].offsetWidth &&
-    index !== frameLimit
-  ) {
-    character.style.left = 0;
-    imageList[index].classList.add("hidden");
-    index++;
-    imageList[index].classList.remove("hidden");
-  }
-  if (characterLocationValue < 0) {
-    character.style.left = 0;
-  }
-}
-  else {
-
-  }
-}
-
-function buttonRight() {
-  if (startScreen.classList.contains("hidden") === true) {
     const characterLocationValue = parseInt(character.style.left, 10);
-    character.style.left = characterLocationValue + 25 + "px"; 
+    if (!shouldRestrictMovement) {
+      character.style.left = characterLocationValue - 25 + "px";
+    }
     if (
       characterLocationValue > imageList[index].offsetWidth &&
       index !== frameLimit
@@ -99,10 +106,32 @@ function buttonRight() {
     if (characterLocationValue < 0) {
       character.style.left = 0;
     }
+  } else {
   }
-    else {
-  
+}
+
+function buttonRight() {
+  if (startScreen.classList.contains("hidden") === true) {
+    const characterLocationValue = parseInt(character.style.left, 10);
+    if (!shouldRestrictMovement) {
+      character.style.left = characterLocationValue + 25 + "px";
     }
+
+    displayModal(characterLocationValue);
+    if (
+      characterLocationValue > imageList[index].offsetWidth &&
+      index !== frameLimit
+    ) {
+      character.style.left = 0;
+      imageList[index].classList.add("hidden");
+      index++;
+      imageList[index].classList.remove("hidden");
+    }
+    if (characterLocationValue < 0) {
+      character.style.left = 0;
+    }
+  } else {
+  }
 }
 
 function buttonB() {
@@ -124,4 +153,3 @@ function startButton() {
   character.classList.remove("hidden");
   scene1Text.classList.remove("hidden");
 }
-
