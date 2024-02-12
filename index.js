@@ -68,7 +68,7 @@ const keyHandler = (e) => {
     index++;
     imageList[index].classList.remove("hidden");
   }
-
+//
   // Prevent going back a screen
   if (characterLocationValue < 0) {
     character.style.left = 0;
