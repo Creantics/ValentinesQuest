@@ -12,7 +12,8 @@ const maleCharacter = document.querySelector(".male");
 const modal = document.querySelector(".modal");
 const modalButtons = document.querySelectorAll(".modal button");
 const backgroundMusic = document.getElementById("bgMusic");
-backgroundMusic.volume = 0.1;
+backgroundMusic.volume=.1;
+
 
 let shouldModalOpen = true;
 let index = 0;
@@ -80,6 +81,8 @@ document.addEventListener("keydown", (e) => keyHandler(e));
 function playStartSound() {
   startSound.volume = 0.25;
   startSound.play();
+  backgroundMusic.play();
+  backgroundMusic.volume=.1;
 }
 
 function playClickSound() {
