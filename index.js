@@ -12,6 +12,9 @@ const maleCharacter = document.querySelector(".male");
 const modal = document.querySelector(".modal");
 const modalButtons = document.querySelectorAll(".modal button");
 const backgroundMusic = document.getElementById("bgMusic");
+const buttonAClick = document.querySelector(".button-a");
+const scene1TextWords = document.getElementById("scene1Text");
+const scene2TextWords = document.getElementById("scene2Text");
 
 
 let shouldModalOpen = true;
@@ -126,7 +129,6 @@ function buttonLeft() {
     if (imageList[index] === imageList[2]) {
       character.remove();
     }
-  } else {
   }
 }
 
@@ -153,16 +155,19 @@ function buttonRight() {
     if (imageList[index] === imageList[2]) {
       character.remove();
     }
-  } else {
   }
 }
 
 function buttonB() {
-  console.log(chatList);
+  if (chatIndex === 0) {
+  scene1TextWords.innerText = "The text reads 'Hey, can you meet me at the coffee shop? I have to ask you something...'";
+  chatIndex++;
+  } else if (chatIndex === 1) {
+    scene1TextWords.innerText = "Tiff is feeling a little worried because the text seemed a little serious. She gathers her things and makes her way to the coffee shop.";
+  }
 }
 
 function buttonA() {
-  console.log(chatList);
 }
 
 function selectButton() {
