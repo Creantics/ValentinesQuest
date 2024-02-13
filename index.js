@@ -159,11 +159,13 @@ function startButton() {
 }
 
 function pause() {
+if (startScreen.classList.contains("hidden") === true) {
   if (document.hasFocus() === false) {
     backgroundMusic.pause();
   } else {
     backgroundMusic.play();
     backgroundMusic.volume=.1;
   }
+}
 }
 setInterval(pause, 100);
