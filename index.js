@@ -166,11 +166,10 @@ function buttonA() {
 }
 
 function selectButton() {
-  console.log("test");
+  window.location.reload();
 }
 
 function startButton() {
-  console.log("test");
   startScreen.classList.add("hidden");
   scene1.classList.remove("hidden");
   character.classList.remove("hidden");
