@@ -80,9 +80,11 @@ document.addEventListener("keydown", (e) => keyHandler(e));
 function playStartSound() {
   startSound.volume = 0.25;
   startSound.play();
+
   backgroundMusic.load();
   backgroundMusic.play();
-  backgroundMusic.volume=.1;
+  backgroundMusic.volume=.1; 
+
 }
 
 function playClickSound() {
@@ -155,3 +157,13 @@ function startButton() {
   character.classList.remove("hidden");
   scene1Text.classList.remove("hidden");
 }
+
+function pause() {
+  if (document.hasFocus() === false) {
+    backgroundMusic.pause();
+  } else {
+    backgroundMusic.play();
+    backgroundMusic.volume=.1;
+  }
+}
+setInterval(pause, 100);
