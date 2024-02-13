@@ -12,6 +12,7 @@ const maleCharacter = document.querySelector(".male");
 const modal = document.querySelector(".modal");
 const modalButtons = document.querySelectorAll(".modal button");
 const backgroundMusic = document.getElementById("bgMusic");
+backgroundMusic.autplay = true;
 backgroundMusic.volume=.1;
 
 
