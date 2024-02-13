@@ -91,17 +91,17 @@ document.addEventListener("keydown", (e) => keyHandler(e));
 // Button Functions
 
 function playStartSound() {
-  startSound.volume = 0.25;
+  startSound.volume = 0.06;
   startSound.play();
 
   backgroundMusic.load();
   backgroundMusic.play();
-  backgroundMusic.volume=.1; 
+  backgroundMusic.volume=.05; 
 
 }
 
 function playClickSound() {
-  clickSound.volume = 0.35;
+  clickSound.volume = 0.08;
   clickSound.play();
 }
 
@@ -183,7 +183,7 @@ if (startScreen.classList.contains("hidden") === true) {
     backgroundMusic.pause();
   } else {
     backgroundMusic.play();
-    backgroundMusic.volume=.1;
+    backgroundMusic.volume=.05;
   }
 }
 }
