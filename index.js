@@ -164,6 +164,7 @@ function buttonB() {
   chatIndex++;
   } else if (chatIndex === 1) {
     scene1TextWords.innerText = "Tiff is feeling a little worried because the text seemed a little serious. She gathers her things and makes her way to the coffee shop.";
+    // scene1TextWords.innerText = "Kate is feeling a little worried because the text seemed a little serious. She gathers her things and makes her way to the coffee shop.";
   }
 }
 
