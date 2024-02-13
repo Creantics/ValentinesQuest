@@ -72,6 +72,11 @@ const keyHandler = (e) => {
   if (characterLocationValue < 0) {
     character.style.left = 0;
   }
+
+  if (imageList[index] === imageList[2]) {
+    character.classList.add("hidden");
+  }
+  
 };
 document.addEventListener("keydown", (e) => keyHandler(e));
 
@@ -110,6 +115,9 @@ function buttonLeft() {
     if (characterLocationValue < 0) {
       character.style.left = 0;
     }
+    if (imageList[index] === imageList[2]) {
+      character.classList.add("hidden");
+    }
   } else {
   }
 }
@@ -133,6 +141,9 @@ function buttonRight() {
     }
     if (characterLocationValue < 0) {
       character.style.left = 0;
+    }
+    if (imageList[index] === imageList[2]) {
+      character.classList.add("hidden");
     }
   } else {
   }
