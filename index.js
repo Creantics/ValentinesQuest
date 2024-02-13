@@ -74,7 +74,7 @@ const keyHandler = (e) => {
   }
 
   if (imageList[index] === imageList[2]) {
-    character.classList.add("hidden");
+    character.remove();
   }
   
 };
@@ -116,7 +116,7 @@ function buttonLeft() {
       character.style.left = 0;
     }
     if (imageList[index] === imageList[2]) {
-      character.classList.add("hidden");
+      character.remove();
     }
   } else {
   }
@@ -143,7 +143,7 @@ function buttonRight() {
       character.style.left = 0;
     }
     if (imageList[index] === imageList[2]) {
-      character.classList.add("hidden");
+      character.remove();
     }
   } else {
   }
