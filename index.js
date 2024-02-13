@@ -45,6 +45,14 @@ const displayModal = (characterLocationValue) => {
 const keyHandler = (e) => {
   const characterLocationValue = parseInt(character.style.left, 10);
 
+  if (e.key === " ") {
+    console.log("test");
+    startScreen.classList.add("hidden");
+    scene1.classList.remove("hidden");
+    character.classList.remove("hidden");
+    scene1Text.classList.remove("hidden");
+  }
+
   if (e.key === "ArrowRight") {
     if (!shouldRestrictMovement) {
       character.style.left = characterLocationValue + 15 + "px";
