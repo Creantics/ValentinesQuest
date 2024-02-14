@@ -160,7 +160,7 @@ function buttonRight() {
 
 function buttonB() {
   if (chatIndex === 0) {
-  scene1TextWords.innerText = "The text reads 'Hey, can you meet me at the coffee shop? I have to ask you something...'";
+  scene1TextWords.innerText = "The text reads 'Hey, can you meet me at the coffee shop? I have to ask you something...' (Press A)";
   chatIndex++;
   } else if (chatIndex === 1) {
     scene1TextWords.innerText = "Tiff is feeling a little worried because the text seemed a little serious. She gathers her things and makes her way to the coffee shop.";
